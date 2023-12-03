@@ -19,11 +19,15 @@ while(True):
     test_image = np.array(img, dtype=np.float32)
     test_image = np.expand_dims(test_image, axis=0)
     
-    normalised_image = test_image/255.0
+    normalised_image = test_image/
     
     prediction = model.predict(normalised_image)
-    
-    print("Prediction: ", prediction)
+
+    rock = int(prediction[0][0]*100) 
+    paper = int(prediction[0][1]*100) 
+    scissor = int(prediction[0][2]*100)
+    print(f"Rock: {rock} %, Paper: {paper} %, Scissor: {scissor} %")
+  
   
     # Display the resulting frame
     cv2.imshow('Result', frame)
